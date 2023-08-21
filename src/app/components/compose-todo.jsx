@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 
 export function ComposeTodo({ userAvatarUrl, userEmail }) {
   const formRef = useRef();
-  const [isDisabled, setIsDisabled] = useState('');
+  const [isDisabled, setIsDisabled] = useState("");
   const handleDisabledChange = (event) => {
     setIsDisabled(event.target.value);
   };
@@ -17,7 +17,7 @@ export function ComposeTodo({ userAvatarUrl, userEmail }) {
     <form
       action={async (formData) => {
         const title = formData.get("title");
-        if(title === "") return
+        if (title === "") return;
         await addPost(title);
         formRef.current?.reset();
       }}
@@ -33,7 +33,7 @@ export function ComposeTodo({ userAvatarUrl, userEmail }) {
       />
       <div className="flex flex-col flex-1 gap-y-2">
         <span className="text-base font-light tracking-tight text-neutral-400">
-        <Snippet symbol="*" color="default">{`https://mntodo.vercel.app/${userEmail}`}</Snippet>
+          {userEmail}
         </span>
         <textarea
           name="title"
@@ -42,7 +42,7 @@ export function ComposeTodo({ userAvatarUrl, userEmail }) {
           className="w-full text-lg text-white bg-transparent border-b outline-none resize-none placeholder-neutral-400 border-neutral-600"
           placeholder="Agrega una nueva tarea"
         ></textarea>
-        <ComposeTodoButton disabled={isDisabled === ''}/>
+        <ComposeTodoButton disabled={isDisabled === ""} />
       </div>
     </form>
   );
