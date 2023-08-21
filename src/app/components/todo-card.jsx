@@ -16,7 +16,7 @@ export default function TodoCard({
     timeStyle: "short",
   });
   return (
-    <article className="flex flex-row w-full p-2 transition bg-transparent border-b rounded-none shadow-none cursor-pointer hover:bg-neutral-800 border-neutral-600">
+    <article className="flex flex-col w-full p-2 transition bg-transparent border-b rounded-none shadow-none cursor-pointer sm:flex-row hover:bg-neutral-800 border-neutral-600">
       <aside className="flex flex-col w-10 mr-3">
         <Image
           className="rounded-full"

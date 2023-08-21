@@ -3,8 +3,8 @@
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 
-import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, User} from "@nextui-org/react";
-import { IconBrandGoogle } from "@tabler/icons-react";
+import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Avatar} from "@nextui-org/react";
+import { IconBrandGoogle, IconLogout } from "@tabler/icons-react";
 
 export function AuthButtonClient({ session }) {
   const supabase = createClientComponentClient();
@@ -34,17 +34,22 @@ export function AuthButtonClient({ session }) {
   ) : (
     <Dropdown>
     <DropdownTrigger>
-    <User  
-    className="p-2 text-xs font-light transition-colors rounded-full cursor-pointer text-neutral-400 hover:bg-neutral-800" 
-    name={session?.user?.user_metadata?.name}
-    description={session?.user?.user_metadata?.email}
-    avatarProps={{
-      src: `${session?.user?.user_metadata?.avatar_url}`
-    }}
-  />
+    <div className="flex p-2 text-xs font-light transition-colors rounded-full cursor-pointer text-neutral-400 hover:bg-neutral-800">
+    <Avatar
+        className="object-contain w-10 h-10 rounded-full sm:mr-4"
+        src={session?.user?.user_metadata?.avatar_url}
+        width={48}
+        height={48}
+        alt={`foto de perfil de Google de ${session?.user?.user_metadata?.name}`}
+      />
+      <div className="flex-col hidden sm:inline-flex"> 
+        <span className="text-sm text-neutral-200">{session?.user?.user_metadata?.name}</span>
+        <span>{session?.user?.user_metadata?.email}</span>
+      </div>
+    </div>
     </DropdownTrigger>
     <DropdownMenu aria-label="Acciones del usuario" onAction={() => handleSignOut}>
-      <DropdownItem key="delete" className="text-danger" color="danger">
+      <DropdownItem key="delete" className="text-danger" color="danger" startContent={<IconLogout className="w-4 h-4"/>}>
         Cerrar sesión
       </DropdownItem>
     </DropdownMenu>

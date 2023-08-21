@@ -22,17 +22,17 @@ export function ComposeTodo({ userAvatarUrl, userEmail }) {
         formRef.current?.reset();
       }}
       ref={formRef}
-      className="flex flex-row w-full p-3 border-b border-neutral-600"
+      className="flex flex-col w-full p-3 border-b sm:flex-row border-neutral-600"
     >
       <Avatar
         className="object-contain w-10 h-10 mr-4 rounded-full"
         src={userAvatarUrl}
         width={48}
         height={48}
-        alt="foto de perfil de GitHub"
+        alt="foto de perfil de Google"
       />
-      <div className="flex flex-col flex-1 gap-y-2">
-        <span className="text-base font-light tracking-tight text-neutral-400">
+      <div className="flex flex-col w-full gap-y-2">
+        <span className="text-sm font-light tracking-tight truncate sm:text-base text-neutral-400">
           {userEmail}
         </span>
         <textarea

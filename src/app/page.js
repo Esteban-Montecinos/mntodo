@@ -31,7 +31,7 @@ export default async function Home() {
     <main className="flex flex-col items-center min-h-screen bg-neutral-950">
       <section className="flex flex-col items-center w-full max-w-2xl min-h-screen mx-auto border-l border-r border-neutral-600">
         <header className="flex flex-row items-center justify-between w-full p-3 mb-4 border-b border-neutral-600">
-          <h2 className="text-3xl font-semibold text-white">*MNTodo</h2>
+          <h2 className="text-3xl font-semibold text-white">*M<span className="hidden sm:inline-flex">NTodo</span></h2>
           <AuthButtonServer />
         </header>
         <ComposeTodo userAvatarUrl={session.user?.user_metadata?.avatar_url} userEmail={session.user?.user_metadata?.email} />
