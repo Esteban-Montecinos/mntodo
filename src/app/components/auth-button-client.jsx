@@ -48,7 +48,7 @@ export function AuthButtonClient({ session }) {
       </div>
     </div>
     </DropdownTrigger>
-    <DropdownMenu aria-label="Acciones del usuario" onAction={handleSignOut}>
+    <DropdownMenu aria-label="Acciones del usuario" onAction={() => handleSignOut()}>
       <DropdownItem key="delete" className="text-danger" color="danger" startContent={<IconLogout className="w-4 h-4"/>}>
         Cerrar sesión
       </DropdownItem>
